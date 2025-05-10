@@ -24,7 +24,59 @@
         <android.plugin.version>4.2.0</android.plugin.version>
         <android.platform.version>34</android.platform.version>
         <androidx.version>1.6.0</androidx.version> <!-- 改回1.6.0版本 -->
+        <androidx.lifecycle.version>2.5.1</androidx.lifecycle.version>
     </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- 明确指定lifecycle组件版本，解决版本冲突 -->
+            <dependency>
+                <groupId>androidx.lifecycle</groupId>
+                <artifactId>lifecycle-common</artifactId>
+                <version>${androidx.lifecycle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.lifecycle</groupId>
+                <artifactId>lifecycle-runtime</artifactId>
+                <version>${androidx.lifecycle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.lifecycle</groupId>
+                <artifactId>lifecycle-livedata-core</artifactId>
+                <version>${androidx.lifecycle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.lifecycle</groupId>
+                <artifactId>lifecycle-process</artifactId>
+                <version>${androidx.lifecycle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.savedstate</groupId>
+                <artifactId>savedstate</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.activity</groupId>
+                <artifactId>activity</artifactId>
+                <version>1.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.lifecycle</groupId>
+                <artifactId>lifecycle-viewmodel-savedstate</artifactId>
+                <version>${androidx.lifecycle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.emoji2</groupId>
+                <artifactId>emoji2</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>androidx.emoji2</groupId>
+                <artifactId>emoji2-views-helper</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- Android SDK -->
@@ -74,24 +126,34 @@
         <dependency>
             <groupId>androidx.lifecycle</groupId>
             <artifactId>lifecycle-viewmodel</artifactId>
-            <version>${androidx.version}</version>
+            <version>${androidx.lifecycle.version}</version>
         </dependency>
         <dependency>
             <groupId>androidx.lifecycle</groupId>
             <artifactId>lifecycle-livedata</artifactId>
-            <version>${androidx.version}</version>
+            <version>${androidx.lifecycle.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.lifecycle</groupId>
+            <artifactId>lifecycle-common</artifactId>
+            <version>${androidx.lifecycle.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.lifecycle</groupId>
+            <artifactId>lifecycle-runtime</artifactId>
+            <version>${androidx.lifecycle.version}</version>
         </dependency>
 
         <!-- Room Database -->
         <dependency>
             <groupId>androidx.room</groupId>
             <artifactId>room-runtime</artifactId>
-            <version>${androidx.version}</version>
+            <version>2.5.0</version>
         </dependency>
         <dependency>
             <groupId>androidx.room</groupId>
             <artifactId>room-compiler</artifactId>
-            <version>${androidx.version}</version>
+            <version>2.5.0</version>
             <scope>provided</scope>
         </dependency>
 
